@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://kit.fontawesome.com/467683b376.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        #slider{
+            height: 35rem;
+            width: 70vw;
+        }
+        #sliderWrapper{
+            transition: transform 1.5s ease-in-out;
+        }
+        .country{
+            font-family: 'Italiana', serif;
+            transition: fadeIn 1s ease-in-out;
+        }
+        header nav a:hover,
+        header nav a.active{
+            color: #0ef;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        @media screen  and (max-width: 768px){
+            #prevBtn{
+                top: 64%;
+                right: 55%;
+                border-radius: 100%;
+            }
+            #nextBtn{
+                top: 64%;
+                right: 35%;
+                border-radius: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="w-full h-[100vh] relative home">
+        <img src="/assets/img/photo3.jpg" alt="Hero Image" class="w-full h-full object-cover">
+        <div class="absolute w-full h-16 bg-black bg-opacity-40 top-0 left-0 flex items-center">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-white text-2xl font-bold" data-aos="fade-left">Adventure Now</h1>
+                <nav>
+                    <ul class="md:flex items-center space-x-5 hidden" data-aos="fade-right">
+                        <li><a id="home" class="active text-white font-thin">Home</a></li>
+                        <li><a id="about" class="text-white font-thin">About Us</a></li>
+                        <li><a id="destination" class="text-white font-thin">Destination</a></li>
+                        <li><a id="blog" class="text-white font-thin">Blog</a></li>
+                        <li><a id="contact" class="text-white font-thin">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <!-- Hamburger Menu -->
+                <div class="md:hidden">
+                    <button id="hamburger" class="text-white px-1" data-aos="fade-right">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <!-- Sidebar Menu -->
+<div id="sidebarMenu" class="fixed inset-y-0 left-0 w-64 bg-gray-100 text-gray-800 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 shadow-lg">
+    <div class="p-4 flex items-center justify-between">
+        <h2 class="text-xl font-semibold">Menu</h2>
+        <button id="closeSidebar" class="text-gray-800">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <ul class="mt-4 space-y-4">
+        <li>
+            <a id="home_hamburger" class="block px-4 py-2 hover:bg-gray-200 rounded-md">Home</a>
+        </li>
+        <li>
+            <a id="about_hamburger" class="block px-4 py-2 hover:bg-gray-200 rounded-md">About</a>
+        </li>
+        <li>
+            <a id="destination_hamburger" class="block px-4 py-2 hover:bg-gray-200 rounded-md">Destination</a>
+        </li>
+        <li>
+            <a id="blog_hamburger" class="block px-4 py-2 hover:bg-gray-200 rounded-md">Blog</a>
+        </li>
+        <li>
+            <a id="contact_hamburger" class="block px-4 py-2 hover:bg-gray-200 rounded-md">Contact</a>
+        </li>
+    </ul>
+</div>    
+            </div>
+        </div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+            <h1 class="text-white md:text-6xl font-bold text-2xl" data-aos="zoom-in-up">START YOUR JOURNEY</h1>
+        </div>
+    </header>
+    <section class="about mx-auto w-full h-auto bg-custom-yellow md:pb-40 pb-20">
+        <h1 class="md:text-5xl text-4xl font-extrabold text-center md:pt-32 pt-10 text-custom-green" data-aos="zoom-in-up">Why We're Different?"</h1>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:mt-48 mt-10">
+            <div class="text-center md:w-36 w-44 mx-20 h-auto">
+                <p class="text-custom-green text-left md:leading-10 leading-7" data-aos="fade-down">Tailored experiences, expert guidance, and unbeatable destinations</p>
+            </div>
+            <div class="text-center w-full h-full relative group md:px-0 px-4">
+                <video id="video" class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform" data-aos="flip-right">
+                  <source src="/assets/video/video.mp4" type="video/mp4" />
+                </video>
+                <button id="videoButton" class="absolute inset-0 flex justify-center items-center bg-black bg-opacity-50 text-white md:text-xl text-sm font-bold md:h-16 h-12 md:w-16 w-12 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>               
+            <div class="md:w-32 mx-20 w-40 h-auto justify-center" data-aos="fade-down">
+                <h1 class="font-agency text-3xl text-center md:text-left font-bold mb-5">WHO WE'RE</h1>
+                <p class="text-custom-green md:text-right text-center leading-4 text-xs italic">We are passionate travel experts dedicated to making your dream vacation a reality. From local getaways to exotic adventures, we tailor every trip to your desires. With over 10 years of experience, we help you explore the world, one destination at a time.</p>
+            </div>   
+        </div>
+    </section>
+    <section class="destination mx-auto w-full h-auto md:pb-40 pb-10 bg-custom-pink">
+        <h1 class="font-italiana text-5xl text-center pt-32 pb-24" data-aos="fade-down">Discover the Most <br> Attractive Place</h1>
+        <div id="slider" class="mx-auto relative overflow-hidden" data-aos="zoom-out-up">
+            <!-- Slider Wrapper -->
+            <div id="sliderWrapper" class="w-full md:h-full h-96 flex">
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <!-- BLack color opacity 40% -->
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/paris.jpg" alt="Slide 1" class="w-full h-full object-cover rounded-lg">
+                <!-- Slide Content -->  
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country" data-aos="zoom-in">PARIS</h1>
+                    <p class="text-white hidden md:block text-base italic about_country" data-aos="zoom-in">The city of love, the city of lights, the city of fashion, the city of art, the city of food, the city of everything. Paris is one of the most beautiful cities on earth, a truth easily appreciated on a stroll that could yield one stunning vista after another, from the epic Eiffel Tower to the regal Jardin des Tuileries to the petite cafés bursting onto the sidewalks.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic" data-aos="zoom-in"> Paris, the city of love, lights, art, and fashion, captivates with iconic landmarks and enchanting streetscapes.   
+                    </span>
+                </div>
+              </div>
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/greece.jpg" alt="Slide 2" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">GREECE</h1>
+                    <p class="text-white text-sm hidden md:block italic about_country">Greece is a country in southeastern Europe with thousands of islands throughout the Aegean and Ionian seas. Influential in ancient times, it's often called the cradle of Western civilization. Athens, its capital, retains landmarks including the 5th-century B.C. Acropolis citadel with the Parthenon temple. Greece is also known for its beaches, from the black sands of Santorini to the party resorts of Mykonos.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">Greece, the cradle of Western civilization, boasts ancient landmarks, stunning islands, Santorini’s sands, and Mykonos’ vibrant resorts.    
+                    </span>
+                </div>    
+              </div>
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/india.jpg" alt="Slide 3" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">INDIA</h1>
+                    <p class="text-white text-sm hidden md:block italic about_country">India is a vast South Asian country with diverse terrain – from Himalayan peaks to Indian Ocean coastline – and history reaching back 5 millennia. In the north, Mughal Empire landmarks include Delhi’s Red Fort complex, massive Jama Masjid mosque and Agra’s iconic Taj Mahal mausoleum. Pilgrims bathe in the Ganges in Varanasi, and Rishikesh is a yoga center and base for Himalayan trekking.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">India, a diverse South Asian nation, features Himalayan peaks, historic Mughal landmarks, spiritual Ganges, and vibrant cultural heritage.    
+                    </span>
+                </div>    
+              </div>
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/maldives.jpg" alt="Slide 4" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">MALDIVES</h1>
+                    <p class="text-white text-sm hidden md:block italic about_country">The Maldives is a tropical paradise in the Indian Ocean made up of 26 ring-shaped atolls, which are made up of more than 1,000 coral islands. Known for its beaches, blue lagoons and extensive reefs, the Maldives is a dream destination for many. The Maldives is a tropical paradise in the Indian Ocean made up of 26 ring-shaped atolls, which are made up of more than 1,000 coral islands. Known for its beaches, blue lagoons and extensive reefs, the Maldives is a dream destination for many.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">The Maldives, a tropical paradise with 26 atolls, boasts stunning beaches, blue lagoons, and vibrant coral reefs.    
+                    </span>
+                </div>    
+              </div>
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/newyork.jpg" alt="Slide 5" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">UNITED STATES</h1>
+                    <p class="text-white text-sm hidden md:block italic about_country">The United States is a land of endless possibilities, offering diverse landscapes, iconic landmarks, and vibrant cities. From the breathtaking Grand Canyon and serene beaches of Hawaii to the bustling streets of New York City and the charm of Route 66, every corner has something unique to offer. Whether you're chasing adventure, culture, or relaxation, the USA promises unforgettable experiences that cater to every traveler's dream.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">The United States offers diverse landscapes, iconic landmarks, and vibrant cities.  
+                    </span>
+                </div>
+              </div>
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/dubai.jpg" alt="Slide 2" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">DUBAI</h1>
+                    <p class="text-white text-sm hidden md:block italic about_country">Dubai, a dazzling oasis in the desert, is a blend of modern luxury and cultural charm. Known for its iconic skyscrapers like the Burj Khalifa, world-class shopping at the Dubai Mall, and thrilling desert safaris, it offers unforgettable experiences. Relax on pristine beaches, explore traditional souks, or indulge in luxury dining. Dubai is a dynamic destination that promises adventure, elegance, and unmatched hospitality.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">Dubai blends modern luxury with cultural charm, offering iconic landmarks, shopping, desert safaris, beaches, and luxury dining.    
+                    </span>
+                </div>
+              </div>
+              <!-- Slide -->
+              <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/egypt.jpg" alt="Slide 2" class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4 md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40 rounded-xl p-5">
+                    <h1 class="md:text-5xl text-2xl text-white country">EGYPT</h1>
+                    <p class="text-white text-sm hidden md:block italic">Egypt, the land of ancient wonders, offers a journey through time with its iconic pyramids, majestic Nile River, and captivating temples. Explore the bustling streets of Cairo, marvel at the Great Sphinx, or relax along the Red Sea's pristine beaches. Whether you're uncovering the mysteries of the past or enjoying the vibrant culture, Egypt promises a magical experience that blends history, adventure, and breathtaking beauty.</p>
+                    <span class="md:hidden block text-white text-xs pt-5 italic">Egypt, with its iconic pyramids, Nile River, and temples, offers a magical blend of history, adventure, and vibrant culture.    
+                    </span>
+                </div>
+              </div>
+              <!-- Japan Slide -->
+            <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/japan.jpg" alt="Slide 6" class="w-full h-full             object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4             md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40            rounded-xl p-5">
+                <h1 class="md:text-5xl text-2xl text-white country">JAPAN</h1>
+                <p class="text-white text-sm hidden md:block italic">Japan offers an        extraordinary blend of ancient traditions and modern innovations.       Visit ancient temples in Kyoto, explore the vibrant streets of        Tokyo, or witness breathtaking landscapes like Mount Fuji. The       country's rich culture, delicious cuisine, and warm hospitality make       it an unforgettable destination, perfect for history, nature, and        technology enthusiasts alike.</p>
+                <span class="md:hidden block text-white text-xs pt-5 italic">Japan          combines ancient traditions and modern technology, offering a rich          cultural experience and breathtaking landscapes.</span>
+                </div>
+            </div>
+  
+            <!-- Italy Slide -->
+            <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/italy.jpg" alt="Slide 7" class="w-full h-full             object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4             md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40            rounded-xl p-5">
+                <h1 class="md:text-5xl text-2xl text-white country">ITALY</h1>
+                <p class="text-white text-sm hidden md:block italic">Italy is a         timeless destination, filled with historical landmarks, vibrant         culture, and delicious cuisine. From the awe-inspiring Colosseum in       Rome to the romantic canals of Venice, Italy's diverse cities             captivate travelers. Explore world-class museums, indulge in            authentic Italian dishes, and discover picturesque landscapes,          making Italy a must-visit destination for any traveler seeking      history and beauty.</p>
+                <span class="md:hidden block text-white text-xs pt-5 italic">Italy          offers rich history, iconic landmarks, and amazing cuisine, making          it a dream destination for many.</span>
+                </div>
+            </div>
+  
+            <!-- Australia Slide -->
+            <div class="slide w-full h-full flex-shrink-0 relative">
+                <div class="absolute bg-black bg-opacity-40 inset-0 rounded-lg"></div>
+                <img src="/assets/img/australia.jpg" alt="Slide 8" class="w-full            h-full object-cover rounded-lg">
+                <div class="absolute inset-0 md:w-1/2 h-1/2 w-44 md:top-1/3 top-1/4             md:left-1/3 left-1/2 -translate-x-1/2 bg-black bg-opacity-40            rounded-xl p-5">
+                <h1 class="md:text-5xl text-2xl text-white country">AUSTRALIA</h1>
+                <p class="text-white text-sm hidden md:block italic">Australia is a         land of contrasts, offering vast, open spaces like the Outback,         tropical rainforests, and world-renowned beaches. From the Great      Barrier Reef's underwater wonder to the bustling, cosmopolitan        cities of Sydney and Melbourne, Australia provides an eclectic mix          of natural beauty, modern attractions, and wildlife experiences.           It’s a dream destination for nature lovers and adventure seekers.</p>
+                <span class="md:hidden block text-white text-xs pt-5        italic">Australia offers stunning landscapes, vibrant cities, and       unique wildlife, making it an ideal travel destination.</span>
+                </div>
+            </div>
+  
+            </div>
+              <button id="prevBtn" class="absolute top-1/3 right-16 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-xl font-bold h-10 w-10 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextBtn" class="absolute top-1/3 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white text-xl font-bold h-10 w-10 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+<!-- Blog Section -->
+    <section class="py-8 blog">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-semibold font-italiana" data-aos="fade-up">Blog Posts</h2>
+                <button id="addPostBtn" data-aos="fade-up" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-black">Add Post</button>
+            </div>
+
+            <!-- Blog Posts Container -->
+            <div id="blogPostContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Posts will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Add/Edit Post -->
+    <div id="postModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-20">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-1/3">
+            <h3 class="text-2xl mb-4" id="modalTitle">Add New Post</h3>
+            <input type="text" id="postTitle" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded" placeholder="Post Title">
+            <textarea id="postDescription" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded" placeholder="Post Description"></textarea>
+            <input type="file" id="postImage" class="w-full mb-4">
+            <div class="flex justify-end space-x-4">
+                <button id="savePostBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">Save</button>
+                <button onclick="closeModal()" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-700">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--Contact Us-->
+    <section class="contact w-full h-auto lg:h-96 my-20 lg:my-36 flex justify-center items-center">
+        <div class="bg-custom-contact-container h-auto lg:h-[80%] w-[95%] lg:w-[85%] p-5 lg:p-0" data-aos="zoom-in">
+          <h1 class="text-white text-2xl lg:text-4xl font-agency text-center pt-5 lg:pt-10" data-aos="zoom-in-up">
+            Subscribe Our Newsletter
+          </h1>
+          <p class="text-white text-base lg:text-lg text-center pt-5 lg:pt-12" data-aos="zoom-out-up">
+            Subscribe to our newsletter and get a special 30% discount.
+          </p>
+          <div class="relative w-full lg:w-[70%] mx-auto">
+            <input 
+              type="email" 
+              placeholder="Enter your email" 
+              class="h-12 lg:h-14 mt-5 px-5 w-full lg:w-[100%]"
+              data-aos="zoom-in-up" required
+            />
+            <button 
+              class="bg-black text-white px-5 py-2"
+              data-aos="zoom-in-up" onclick="window.location.href='mailto:mail@adventure.nu?subject=Subscribe to Newsletter'"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </section>
+      <footer class="w-auto md:h-40 h-auto border-t-2 bg-custom-contact-container flex items-center justify-center" data-aos="fade-right">
+        <div class="container h-[70%] w-[90%] md:w-[70%] md:flex block items-start md:justify-center space-y-6 md:space-y-0 md:space-x-10 py-6">
+          <p class="text-white text-lg text-center md:text-left">Follow Us</p>
+          <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+            <a href="https://x.com/adventure_nu"><i class="fa-brands fa-twitter text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="https://www.facebook.com/adventure.nu"><i class="fa-brands fa-facebook-f text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="https://www.instagram.com/adventure.nu"><i class="fa-brands fa-instagram text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="https://www.linkedin.com/company/adventurenu/"><i class="fa-brands fa-linkedin-in text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="youtube.com/adventurenu"><i class="fa-brands fa-youtube text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="tiktok.com/adventure.nu"><i class="fa-brands fa-tiktok text-xl text-gray-400 hover:text-white"></i></a>
+            <a href="mailto:info@adventure.nu"><i class="fa-brands fa-google-plus text-xl text-gray-400 hover:text-white"></i></a>
+          </div>
+          <!-- Footer Texts -->
+          <div class="mt-auto text-center text-xs text-white space-y-2">
+            <p>© 2025 Adventure Nu. All Rights Reserved.</p>
+            <p>Website designed and  developed by <strong><a href="https://www.ladkabangayacoder.live/" class="text-white hover:underline">Ishu Baghel</a></strong></p>
+          </div>
+        </div>
+      </footer>
+      
+               
+    <script src="/assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 3000,
+            easing: 'ease',
+            once: true
+        });
+    </script>
+    <script>
+        let currentEditPostId = null;
+
+        // Function to open the modal
+        function openModal(title, postTitle = '', postDescription = '', postImage = null) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('postTitle').value = postTitle;
+            document.getElementById('postDescription').value = postDescription;
+            document.getElementById('postImage').value = ''; // Reset file input
+            document.getElementById('postModal').classList.remove('hidden');
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('postModal').classList.add('hidden');
+        }
+
+        // Add Post button event listener
+        document.getElementById('addPostBtn').addEventListener('click', () => {
+            currentEditPostId = null;
+            openModal('Add New Post');
+        });
+
+        // Save Post button event listener
+        document.getElementById('savePostBtn').addEventListener('click', () => {
+            const title = document.getElementById('postTitle').value;
+            const description = document.getElementById('postDescription').value;
+            const image = document.getElementById('postImage').files[0];
+
+            if (currentEditPostId) {
+                updatePost(currentEditPostId, title, description, image);
+            } else {
+                addNewPost(title, description, image);
+            }
+
+            closeModal();
+        });
+
+        // Function to add a new post
+        function addNewPost(title, description, image) {
+            const postId = 'post' + Date.now();
+            const postContainer = document.getElementById('blogPostContainer');
+            const postElement = document.createElement('div');
+            postElement.classList.add('bg-white', 'p-4', 'rounded', 'shadow');
+            postElement.id = postId;
+
+            const imageUrl = image ? URL.createObjectURL(image) : 'https://via.placeholder.com/300x200';
+            postElement.innerHTML = `
+                <img src="${imageUrl}" alt="Post Image" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold">${title}</h3>
+                <p class="text-gray-700 my-2">${description}</p>
+                <div class="flex justify-between mt-4">
+                    <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700" onclick="editPost('${postId}')">Edit</button>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onclick="removePost('${postId}')">Delete</button>
+                </div>
+            `;
+
+            postContainer.appendChild(postElement);
+        }
+
+        // Function to edit a post
+        function editPost(postId) {
+            const postElement = document.getElementById(postId);
+            const title = postElement.querySelector('h3').innerText;
+            const description = postElement.querySelector('p').innerText;
+            currentEditPostId = postId;
+            openModal('Edit Post', title, description);
+        }
+
+        // Function to update a post
+        function updatePost(postId, title, description, image) {
+            const postElement = document.getElementById(postId);
+            const imageUrl = image ? URL.createObjectURL(image) : postElement.querySelector('img').src;
+
+            postElement.innerHTML = `
+                <img src="${imageUrl}" alt="Post Image" class="w-full h-48 object-cover rounded mb-4">
+                <h3 class="text-xl font-semibold">${title}</h3>
+                <p class="text-gray-700 my-2">${description}</p>
+                <div class="flex justify-between mt-4">
+                    <button class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700" onclick="editPost('${postId}')">Edit</button>
+                    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700" onclick="removePost('${postId}')">Delete</button>
+                </div>
+            `;
+        }
+
+        // Function to remove a post
+        function removePost(postId) {
+            const postElement = document.getElementById(postId);
+            postElement.remove();
+        }
+
+        // Hambuger menu event listener
+        const hamburger = document.getElementById('hamburger');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const closeSidebar = document.getElementById('closeSidebar');
+
+    hamburger.addEventListener('click', () => {
+        sidebarMenu.classList.remove('-translate-x-full');
+    });
+
+    closeSidebar.addEventListener('click', () => {
+        sidebarMenu.classList.add('-translate-x-full');
+    });
+    </script>
+</body>
+</html>
