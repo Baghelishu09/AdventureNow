@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const path = require('path');
 const PORT = process.env.PORT || 80;
 
-app.use(express.static(path.join('assets',__dirname, 'assets')));
+app.use('/assets',express.static(path.join(__dirname, 'assets')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
